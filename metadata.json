@@ -1,0 +1,5 @@
+{
+  "name": "MediChain - Trasparenza Sanitaria",
+  "description": "Una simulazione blockchain per la gestione trasparente delle liste di attesa sanitarie. Traccia le prenotazioni mediche dalla creazione all'erogazione con un registro immutabile e analisi AI.",
+  "requestFramePermissions": []
+}
