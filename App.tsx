@@ -163,7 +163,7 @@ const App: React.FC = () => {
   />
   <div>
     <h1 className="font-bold text-lg leading-tight">CUPChain</h1>
-    <p className="text-xs text-slate-400">Ledger Sanitario</p>
+    <p className="text-xs text-slate-400">a cura di Marco Pingitore</p>
   </div>
 </div>
 
