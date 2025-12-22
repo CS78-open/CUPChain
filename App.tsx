@@ -154,15 +154,18 @@ const App: React.FC = () => {
       
       {/* Sidebar Navigation */}
       <aside className="w-full md:w-64 bg-slate-900 text-white p-6 flex flex-col shrink-0 h-screen sticky top-0">
-        <div className="flex items-center gap-3 mb-10">
-          <div className="w-10 h-10 bg-indigo-500 rounded-lg flex items-center justify-center">
-            <Database size={24} className="text-white" />
-          </div>
-          <div>
-            <h1 className="font-bold text-lg leading-tight">MediChain</h1>
-            <p className="text-xs text-slate-400">Ledger Sanitario</p>
-          </div>
-        </div>
+  <div className="flex items-center gap-3 mb-10">
+  {/* Logo personalizzato */}
+  <img 
+    src="/logo.png" 
+    alt="CUPChain Logo" 
+    className="w-12 h-12 object-contain bg-white rounded-lg p-1" 
+  />
+  <div>
+    <h1 className="font-bold text-lg leading-tight">CUPChain</h1>
+    <p className="text-xs text-slate-400">Ledger Sanitario</p>
+  </div>
+</div>
 
         <nav className="space-y-2 flex-1">
           <button 
