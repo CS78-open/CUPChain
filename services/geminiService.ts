@@ -1,6 +1,13 @@
 import { GoogleGenAI } from "@google/genai";
 import { Block } from "../types";
 
+// Dichiarazione manuale per evitare errori TypeScript dato che mancano @types/node
+declare const process: {
+  env: {
+    API_KEY: string;
+  }
+};
+
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 export const analyzeBlockchain = async (chain: Block[]): Promise<string> => {
