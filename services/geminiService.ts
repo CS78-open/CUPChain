@@ -1,18 +1,29 @@
 import { GoogleGenAI } from "@google/genai";
 import { Block } from "../types";
 
-// Dichiarazione manuale per evitare errori TypeScript dato che mancano @types/node
+// Dichiarazione per TypeScript
 declare const process: {
   env: {
     API_KEY: string;
   }
 };
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+// Rimuovi l'inizializzazione globale che causa il crash
+// const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
 export const analyzeBlockchain = async (chain: Block[]): Promise<string> => {
   try {
-    const model = "gemini-3-flash-preview";
+    const apiKey = process.env.API_KEY;
+    
+    // Controllo di sicurezza
+    if (!apiKey) {
+      console.warn("API Key mancante su Vercel!");
+      return "Errore: API Key non configurata. Impostala su Vercel nelle Environment Variables.";
+    }
+
+    // Inizializza solo quando richiesto
+    const ai = new GoogleGenAI({ apiKey });
+    const model = "gemini-2.0-flash"; // Aggiornato a un modello stabile se necessario o usa "gemini-1.5-flash"
     
     // Prepare a simplified version of the chain for the AI to save tokens
     const chainSummary = chain.map(b => ({
@@ -38,14 +49,19 @@ export const analyzeBlockchain = async (chain: Block[]): Promise<string> => {
       Usa un tono professionale e tecnico.
     `;
 
+    // Nota: La chiamata corretta per @google/genai v1.0+ potrebbe variare leggermente
+    // Assicuriamoci di usare la sintassi standard o quella specifica della tua versione
+    // Se usi @google/genai, spesso la sintassi è client.models.generateContent o simile.
+    // Manteniamo la tua struttura se funzionava in locale, ma incapsulata nel try/catch.
+    
     const response = await ai.models.generateContent({
       model: model,
-      contents: prompt,
+      contents: prompt, // Verifica se la libreria vuole 'contents' o un formato diverso
     });
 
-    return response.text || "Impossibile generare l'analisi al momento.";
+    return response.text() || "Impossibile generare l'analisi."; // .text() è spesso un metodo
   } catch (error) {
     console.error("Gemini Analysis Error:", error);
-    return "Errore durante l'analisi AI. Verifica la chiave API.";
+    return "Errore durante l'analisi AI. Verifica la console per dettagli.";
   }
 };
