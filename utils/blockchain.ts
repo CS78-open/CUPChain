@@ -1,4 +1,4 @@
-import { Block, MedicalData, Status } from '../types';
+import { Block, MedicalData } from '../types';
 
 export const calculateHash = async (
   index: number,
