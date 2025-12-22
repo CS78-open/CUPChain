@@ -23,7 +23,7 @@ export const analyzeBlockchain = async (chain: Block[]): Promise<string> => {
 
     // Inizializza solo quando richiesto
     const ai = new GoogleGenAI({ apiKey });
-    const model = "gemini-1.5-flash-001"; // Aggiornato a un modello stabile se necessario o usa "gemini-1.5-flash"
+    const model = "gemini-1.5-flash"; // Aggiornato a un modello stabile se necessario o usa "gemini-1.5-flash"
     
     // Prepare a simplified version of the chain for the AI to save tokens
     const chainSummary = chain.map(b => ({
