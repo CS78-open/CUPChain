@@ -1,0 +1,44 @@
+# Questo file è generato secondo lo standard Developers Italia
+# Riferimento: https://docs.italia.it/italia/developers-italia/publiccodeyml/it/master/index.html
+publiccodeYmlVersion: "0.2"
+name: CUPChain
+releaseDate: "2024-03-20"
+softwareType: web
+url: "https://github.com/marcopingitore/cupchain"
+landingPage: "https://github.com/marcopingitore/cupchain#readme"
+shortDescription: >
+  Proof of Concept per la gestione trasparente delle liste di attesa sanitarie tramite tecnologia blockchain.
+longDescription: >
+  CUPChain è un'applicazione dimostrativa che utilizza una blockchain locale per garantire immutabilità e trasparenza 
+  nel tracciamento delle ricette mediche (NRE). Il sistema copre l'intero ciclo di vita della prestazione: 
+  dalla prenotazione del cittadino (blocco di creazione) all'erogazione ospedaliera (blocco di fulfillment). 
+  Include un "AI Auditor" basato su Google Gemini per l'analisi automatizzata dei tempi di attesa e l'integrità del ledger.
+isBasedOn: "https://github.com/google/generative-ai-js"
+softwareVersion: "1.0.0"
+developmentStatus: concept
+legal:
+  license: "MIT"
+  repoOwner: "Marco Pingitore"
+maintenance:
+  type: none
+  contacts:
+    - name: Marco Pingitore
+      email: marco@marcopingitore.it
+localization:
+  localizationReady: true
+  availableLanguages:
+    - it
+it:
+  conformance: {}
+  countryExtensionVersion: "0.2"
+  piattaforme:
+    - altra
+categories:
+  - sanita
+  - trasparenza
+  - welfare
+features:
+  - "Registro immutabile delle prenotazioni sanitarie (NRE)"
+  - "Verifica crittografica dell'integrità della catena (SHA-256)"
+  - "Audit intelligente tramite Intelligenza Artificiale (Gemini API)"
+  - "Visualizzazione trasparente del ledger pubblico"
