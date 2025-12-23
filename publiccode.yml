@@ -17,7 +17,7 @@ isBasedOn: "https://github.com/google/generative-ai-js"
 softwareVersion: "1.0.0"
 developmentStatus: concept
 legal:
-  license: "MIT"
+  license: "EUPL-1.2"
   repoOwner: "Marco Pingitore"
 maintenance:
   type: none
